@@ -45,3 +45,15 @@ $('#editProfile').onclick=()=>{openModal('IDENTIDAD DEL CAMPEÓN',`<h2>Editar pe
 $('#soundSetting').onchange=save;$('#musicSetting').onchange=save;$('#qualitySetting').onchange=save;$('#languageSetting').onchange=()=>{save();toast('Preferencia de idioma guardada (contenido en español)')};
 $('#resetSettings').onclick=()=>{$('#soundSetting').checked=true;$('#musicSetting').checked=true;$('#qualitySetting').value='Alta';$('#languageSetting').value='Español';save();toast('Configuración restaurada')};
 load();$('#chipName').textContent=$('#profileName').textContent;$('#goldBalance').textContent=state.coins.toLocaleString('es-AR');$('#gemBalance').textContent=state.gems;renderHeroes();renderLobby();renderStore();renderCollection();renderMissions();
+
+// HUD and independent navigation polish
+const originalGo = go;
+go = function(page){ originalGo(page); $$('.dock-item').forEach(b=>b.classList.toggle('active',b.dataset.page===page)); };
+$('#friendsCollapse')?.addEventListener('click',()=>{$('.friends-panel').classList.toggle('collapsed');$('#friendsCollapse').textContent=$('.friends-panel').classList.contains('collapsed')?'›':'‹'});
+$('#friendsInvite')?.addEventListener('click',()=>toast('Invitaciones de amigos disponibles próximamente'));
+$('#friendsAdd')?.addEventListener('click',()=>openModal('COMUNIDAD DEL REINO',`<h2>Invitar aventurero</h2><p>La lista de amigos online es una demostración. Las invitaciones reales llegarán con el sistema multijugador.</p><button class="btn-gold" id="friendOk">ENTENDIDO</button>`));
+$('#addCurrency')?.addEventListener('click',()=>{state.coins+=100;state.gems+=5;save();renderStore();toast('Recompensa de bienvenida: +100 oro · +5 gemas')});
+const baseRenderStore=renderStore;
+renderStore=function(){baseRenderStore();if($('#goldBalanceCopy'))$('#goldBalanceCopy').textContent=state.coins.toLocaleString('es-AR');if($('#gemBalanceCopy'))$('#gemBalanceCopy').textContent=state.gems};
+const modalDelegate=document.addEventListener('click',e=>{if(e.target.id==='friendOk')closeModal()});
+window.addEventListener('load',()=>{setTimeout(()=>$('#loadingScreen')?.classList.add('done'),2350)});

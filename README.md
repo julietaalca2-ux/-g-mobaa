@@ -1,20 +1,17 @@
 # Eternal Kingdoms — Web Edition
 
-Interfaz web de demostración de un MOBA de fantasía, construida con HTML, CSS y JavaScript puro.
+Interfaz de videojuego MOBA de fantasía, optimizada para Safari en iPhone y publicación directa en GitHub Pages.
 
-## Contenido
-- `index.html`: estructura de las pantallas.
-- `styles.css`: identidad visual, animaciones y adaptación móvil.
-- `app.js`: navegación, héroes, sala 5v5, tienda, colección, perfil, eventos y ajustes.
-- `assets/`: carpeta preparada para recursos gráficos adicionales.
+## Archivos
+- `index.html` — HUD principal, pantalla de carga y secciones independientes.
+- `styles.css` — interfaz cinematográfica, animaciones, efectos y adaptación horizontal/vertical.
+- `app.js` — navegación, selección de héroes, sala 5v5 de demostración, tienda, inventario, perfil, eventos y guardado local.
+- `assets/` — carpeta preparada para recursos gráficos propios.
 
-## Publicar en GitHub Pages
-1. Crea un repositorio en GitHub y sube el contenido de esta carpeta (no la carpeta ZIP).
-2. En **Settings → Pages**, elige **Deploy from a branch**.
-3. Selecciona la rama `main` y la carpeta `/ (root)`.
-4. Guarda y abre la URL que GitHub Pages te indique.
+## Publicación
+Sube el contenido de esta carpeta a la raíz de un repositorio GitHub. En **Settings → Pages**, selecciona **Deploy from a branch**, rama `main` y carpeta `/ (root)`.
 
-No requiere instalación, compilación, Unity ni servicios externos. Abre `index.html` en un navegador para probarlo. Google Fonts se usa como mejora tipográfica opcional; si no hay conexión, se aplican fuentes alternativas.
+No requiere Unity, Unreal, instalación ni compilación. Google Fonts es opcional; hay fuentes alternativas si no hay conexión.
 
-## Estado de esta edición
-Esta entrega es una interfaz jugable de demostración. La búsqueda de partida, los rivales, las estadísticas y el historial son demostrativos. No incluye combate 3D, servidores, cuentas online ni multijugador real. Las preferencias, el perfil, el inventario y las recompensas se guardan localmente mediante `localStorage`.
+## Alcance
+Es una edición web visual e interactiva. La cola de partida, amigos, historial y estadísticas son demostrativos; no existe todavía un servidor de partidas, cuentas online, combate 3D ni multijugador real. Los ajustes, el nombre, el inventario y las recompensas se guardan en `localStorage`.
