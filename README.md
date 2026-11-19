@@ -15,3 +15,7 @@ No requiere Unity, Unreal, instalación ni compilación. Google Fonts es opciona
 
 ## Alcance
 Es una edición web visual e interactiva. La cola de partida, amigos, historial y estadísticas son demostrativos; no existe todavía un servidor de partidas, cuentas online, combate 3D ni multijugador real. Los ajustes, el nombre, el inventario y las recompensas se guardan en `localStorage`.
+
+
+## Versión 3 — corrección de interfaz
+Se reorganizó el HUD, el escenario principal y las páginas internas con áreas reservadas para la barra superior e inferior. Los paneles laterales de promociones y amigos solo aparecen en Inicio; las demás secciones usan el ancho disponible y mantienen cuadrículas simétricas y desplazamiento independiente. Incluye ajustes específicos para iPhone vertical y horizontal.

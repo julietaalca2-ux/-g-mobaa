@@ -6,3 +6,143 @@
 @media(orientation:landscape) and (max-height:500px){.hud-top{height:48px}.left-rail{top:58px;gap:5px}.promo-tile{height:42px}.rail-action span{font-size:24px}.friends-panel{top:58px;width:175px}.friend{padding:4px}.friend-avatar{width:28px;height:28px}.home-scene{height:calc(100% - 69px)}.home-bottom-info{height:69px}.bottom-dock{height:58px}.inner-page{padding-top:55px;padding-bottom:65px}.page-topline{margin-bottom:10px}.mode-card{min-height:75px}.hero-portrait{height:75px}.hero-detail{padding:9px}.detail-art{height:55px}.store-art{height:70px}.event-hero-art{font-size:65px}.settings-group{padding:8px 0}}
 .btn-gold{border:1px solid #fff0a8;background:linear-gradient(110deg,#d3a94e,#ffed9a);color:#3c2c0b;padding:11px 17px;font-size:9px;font-weight:800;letter-spacing:1px}.modal-content .btn-gold{width:100%}
 .friends-panel.collapsed{width:38px}.friends-panel.collapsed .friends-head{justify-content:center}.friends-panel.collapsed .friends-head b,.friends-panel.collapsed .friends-head small,.friends-panel.collapsed .friends-head .online-dot,.friends-panel.collapsed .friend-list,.friends-panel.collapsed .friend-actions{display:none}.friends-panel.collapsed .friends-head button{margin:0}
+
+
+/* =========================================================
+   VERSION 3 — ALIGNMENT / RESPONSIVE GRID / INDEPENDENT PAGES
+   ========================================================= */
+:root{--hud-h:74px;--dock-h:82px;--rail-w:160px;--friends-w:220px}
+html,body{width:100%;min-height:100%;height:100%;overflow:hidden}
+.game-shell{height:100dvh;min-height:520px;isolation:isolate}
+.hud-top{height:var(--hud-h);left:0;right:0;padding-inline:clamp(14px,3.6vw,58px);gap:clamp(8px,1.6vw,24px)}
+.profile-chip{flex:0 0 auto;min-width:clamp(145px,19vw,230px)}
+.wallet-hud{flex:0 0 auto;justify-content:center;min-width:clamp(180px,25vw,330px);margin-left:auto}
+.hud-tools{flex:0 0 auto}
+.stage{position:absolute;inset:var(--hud-h) 0 var(--dock-h);overflow:hidden}
+.page{width:100%;height:100%;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+.page.active{display:block}
+.left-rail{top:calc(var(--hud-h) + 24px);left:clamp(14px,3.6vw,58px);width:var(--rail-w);gap:12px}
+.friends-panel{top:calc(var(--hud-h) + 26px);right:clamp(14px,3.6vw,58px);width:var(--friends-w)}
+.home-scene{height:calc(100% - 104px);min-height:360px}
+.home-bottom-info{min-height:104px;height:104px}
+.scene-copy{left:clamp(185px,17vw,270px);top:27%;width:min(34%,440px);max-width:440px}
+.scene-copy h1{font-size:clamp(31px,4.3vw,62px);line-height:1.08;letter-spacing:.025em}
+.scene-copy p{font-size:clamp(10px,1.05vw,14px);line-height:1.8}
+.season-pill{display:inline-flex;align-items:center;white-space:nowrap}
+.scene-discover{margin-top:10px}
+.hero-illustration{left:52%;top:5%;width:min(34vw,470px);height:90%;transform:translateX(-50%)}
+.scene-caption{left:clamp(185px,17vw,270px);bottom:18px}
+.scene-castle{right:22%;bottom:0}
+.home-bottom-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:12px clamp(185px,17vw,270px) 12px clamp(185px,17vw,270px);background:linear-gradient(90deg,#17285f,#293a88 60%,#18265b);border-top:1px solid #ffffff2a}
+.news-card{min-width:0;display:grid;grid-template-columns:36px minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 12px;border:1px solid #d8e5ff30;background:#ffffff0d}
+.news-card>div{min-width:0}.news-card b,.news-card p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bottom-dock{height:var(--dock-h);padding-inline:clamp(10px,3vw,48px);justify-content:center;gap:0}
+.dock-item{flex:1 1 0;max-width:205px;min-width:0}
+.classic-button{flex:0 1 290px;width:auto;min-width:190px}
+body:not(.home-view) .left-rail,body:not(.home-view) .friends-panel{display:none}
+.inner-page{height:100%;min-height:100%;padding:clamp(22px,3.2vh,38px) clamp(22px,5vw,76px) 34px;background:radial-gradient(ellipse at 80% 0%,#4659a966,transparent 38%),linear-gradient(145deg,#111d50ed,#0b1438f5 65%,#17285c)}
+.inner-page:before{position:absolute;right:5%;top:10%;font-size:clamp(100px,17vw,220px)}
+.page-topline{width:100%;max-width:1180px;margin:0 auto 24px;min-height:66px;align-items:center;gap:20px}
+.page-topline>div:first-child{min-width:0}
+.page-topline h1{font-size:clamp(25px,2.6vw,38px)}
+.page-topline p{font-size:clamp(10px,.9vw,12px)}
+.mode-grid,.lobby-panel,.demo-note,.filter-row,.heroes-layout,.store-tabs,.store-grid,.collection-summary,.subheading,.collection-grid,.profile-banner,.stats-grid,.match-list,.event-hero,.missions,.settings-panel,.about-card{width:100%;max-width:1180px;margin-left:auto;margin-right:auto}
+.mode-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.3vw,16px)}
+.mode-card{min-height:118px}
+.lobby-panel{padding:clamp(15px,2vw,24px)}
+.teams{grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr);gap:clamp(10px,2vw,24px)}
+.slots{grid-template-columns:repeat(5,minmax(0,1fr))}
+.filter-row{margin-bottom:18px}
+.heroes-layout{grid-template-columns:minmax(0,1.7fr) minmax(270px,.8fr);gap:18px}
+.hero-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hero-portrait{height:clamp(110px,15vh,165px)}
+.hero-detail{min-width:0}
+.store-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.store-art{height:clamp(115px,17vh,175px)}
+.collection-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.collection-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stats-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.event-hero{grid-template-columns:minmax(120px,180px) minmax(0,1fr) minmax(120px,160px);gap:22px}
+.missions{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.settings-panel,.about-card{max-width:900px}
+.page-topline>*:last-child{flex:0 0 auto}
+.wallet-inner{margin-left:auto}
+@media(max-width:1050px){
+ :root{--rail-w:132px;--friends-w:190px}
+ .left-rail{left:14px}.friends-panel{right:14px}
+ .scene-copy{left:clamp(155px,17vw,205px);width:32%}
+ .scene-caption{left:clamp(155px,17vw,205px)}
+ .home-bottom-info{padding-left:clamp(155px,17vw,205px);padding-right:clamp(155px,17vw,205px)}
+ .hero-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .store-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .inner-page{padding-inline:4%}
+}
+@media(max-width:700px){
+ :root{--hud-h:58px;--dock-h:66px;--rail-w:64px;--friends-w:138px}
+ .hud-top{padding:4px 8px;gap:5px}
+ .profile-chip{min-width:0;max-width:33vw}
+ .wallet-hud{min-width:0;gap:6px;padding:5px 7px;font-size:9px}
+ .hud-tools{gap:5px}.hud-tools button{font-size:15px}
+ .stage{inset:var(--hud-h) 0 var(--dock-h)}
+ .left-rail{top:calc(var(--hud-h) + 10px);left:5px;width:65px;gap:5px}
+ .friends-panel{top:calc(var(--hud-h) + 10px);right:5px;width:138px}
+ .home-scene{height:calc(100% - 72px);min-height:300px}
+ .home-bottom-info{height:72px;min-height:72px;padding:5px 7px;gap:5px;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .news-card{grid-template-columns:23px minmax(0,1fr);gap:4px;padding:5px}
+ .news-card button{display:none}.news-icon{font-size:18px}
+ .news-card small{font-size:5px}.news-card b{font-size:7px}
+ .scene-copy{left:78px;top:36%;width:calc(100% - 230px);max-width:260px}
+ .scene-copy h1{font-size:clamp(21px,5vw,32px)}
+ .scene-copy p{font-size:7px;line-height:1.5}
+ .season-pill{font-size:5px;letter-spacing:.7px;padding:4px 6px}
+ .scene-discover{font-size:6px;padding:6px}
+ .scene-caption{left:78px;font-size:5px}
+ .hero-illustration{left:53%;width:42%;top:12%;height:78%}
+ .bottom-dock{height:var(--dock-h);padding:0 4px}
+ .dock-item{gap:1px;min-width:0}.dock-item span{font-size:19px}.dock-item b{font-size:6px}
+ .dock-mode{width:45px;flex:0 0 45px}.dock-mode span{font-size:18px}.dock-mode b{font-size:6px}
+ .classic-button{min-width:100px;flex:0 1 29%;margin:5px 0 5px 4px;grid-template-columns:25px 1fr;grid-template-rows:1fr 12px}
+ .classic-button span{font-size:17px}.classic-button b{font-size:9px}.classic-button i{font-size:5px}
+ .inner-page{padding:18px 12px 22px}
+ .page-topline{margin-bottom:15px;min-height:48px;gap:8px}
+ .page-topline h1{font-size:22px}.page-topline p{font-size:8px}
+ .page-topline>div:first-child>small{font-size:6px}
+ .mode-card{min-height:90px;padding:8px 4px}
+ .teams{grid-template-columns:minmax(0,1fr);gap:8px}
+ .versus{font-size:12px}
+ .slot{aspect-ratio:1.1}
+ .heroes-layout{grid-template-columns:minmax(0,1fr)}
+ .hero-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .hero-portrait{height:82px}
+ .hero-detail{margin-top:3px}
+ .store-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .store-art{height:100px}
+ .collection-summary{gap:6px}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .event-hero{grid-template-columns:58px minmax(0,1fr);gap:8px}
+ .event-reward{grid-column:1/-1}
+ .missions{grid-template-columns:minmax(0,1fr)}
+}
+@media(orientation:landscape) and (max-height:500px){
+ :root{--hud-h:48px;--dock-h:56px}
+ .left-rail{top:55px;gap:4px}.promo-tile{height:39px}.rail-action span{font-size:22px}
+ .friends-panel{top:55px}.friend{padding:4px}.friend-avatar{width:28px;height:28px}
+ .home-scene{height:calc(100% - 56px);min-height:0}.home-bottom-info{height:56px;min-height:56px}
+ .scene-copy{top:21%}.scene-copy h1{font-size:clamp(22px,4vw,38px)}
+ .hero-illustration{height:86%;top:4%}
+ .inner-page{padding-top:12px;padding-bottom:12px}
+ .page-topline{margin-bottom:10px;min-height:40px}
+ .mode-card{min-height:68px}.hero-portrait{height:70px}.store-art{height:65px}
+}
+@media(max-width:420px) and (orientation:portrait){
+ .top-quick{display:none}.hud-tools button:nth-child(2),.hud-tools button:nth-child(4){display:none}
+ .left-rail{width:55px}.promo-tile{height:38px}.promo-tile b{font-size:5px}.promo-tile span{font-size:17px}
+ .rail-action{width:52px}.rail-action span{font-size:21px}.rail-action b{font-size:7px}
+ .friends-panel{width:118px}.friend{gap:4px;padding:4px}.friend-avatar{width:25px;height:25px;font-size:14px}
+ .friend b{font-size:7px}.friend small{font-size:5px}.friend>i{font-size:5px}
+ .scene-copy{left:62px;width:calc(100% - 190px)}
+ .scene-copy h1{font-size:19px}.scene-copy p{font-size:6px}
+ .scene-caption{left:62px}
+ .dock-item b{font-size:5px}.dock-item span{font-size:16px}
+ .classic-button{min-width:88px}.classic-button b{font-size:8px}
+}
