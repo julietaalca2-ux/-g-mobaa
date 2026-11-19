@@ -1,28 +1,474 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101b45"><meta name="description" content="Eternal Kingdoms — Fantasy MOBA Web Edition"><title>Eternal Kingdoms</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
-<body>
-<div id="loadingScreen" class="loading-screen"><div class="loading-stars"></div><div class="loading-emblem"><span>✦</span><b>EK</b><i></i></div><div class="loading-title">ETERNAL <em>KINGDOMS</em></div><div class="loading-subtitle">LAS LEYENDAS DESPIERTAN</div><div class="loading-track"><i></i></div><div class="loading-status">INVOCANDO LOS REINOS...</div></div>
-<div class="game-shell">
-<header class="hud-top">
- <button class="profile-chip" id="playerChip" data-page="profile"><span class="avatar-frame">♜</span><span class="profile-meta"><b id="chipName">Aventurero</b><small><strong>✦</strong> NIVEL <span id="chipLevel">12</span> <i class="xp-mini"><u></u></i></small></span></button>
- <div class="top-quick"><button title="Misiones" data-page="events">♜<i class="new-dot">NEW</i></button><button title="Logros" data-page="profile">♛</button><button title="Clasificación" data-page="profile">🏆</button></div>
- <div class="wallet-hud"><span>🪙 <b id="goldBalance">2.450</b></span><span>💎 <b id="gemBalance">320</b></span><button id="addCurrency" title="Recompensa diaria">＋</button></div>
- <div class="hud-tools"><button data-page="profile" title="Clasificación">🏆</button><button data-page="profile" title="Estadísticas">▥</button><button data-page="events" title="Noticias">▶</button><button data-page="profile" title="Mensajes">✉<i></i></button><button data-page="settings" title="Configuración">⚙</button></div>
-</header>
-<aside class="left-rail"><div class="promo-tile promo-one"><span>✧</span><b>CAMPEONES<br>DEL ALBA</b><small>DESCUBRIR</small></div><div class="promo-tile promo-two"><span>♛</span><b>RELIQUIAS<br>ANTIGUAS</b><small>GRATIS</small></div><button class="rail-action" data-page="store"><span>♢</span><b>Tienda</b></button><button class="rail-action" data-page="events"><span>⚑</span><b>Eventos</b></button><button class="rail-action" data-page="collection"><span>▥</span><b>Recompensas</b></button></aside>
-<aside class="friends-panel"><div class="friends-head"><b>AMIGOS</b><span class="online-dot"></span><small>4 EN LÍNEA</small><button id="friendsCollapse">‹</button></div><div class="friend-list"><div class="friend"><span class="friend-avatar f1">☠</span><span><b>Lord Neko</b><small>✦ V · En partida</small></span><i>12 min</i></div><div class="friend"><span class="friend-avatar f2">♞</span><span><b>Leonel</b><small>✦ 46 · En línea</small></span><i>9 min</i></div><div class="friend"><span class="friend-avatar f3">🐉</span><span><b>Nicargo</b><small>IV · En línea</small></span><i>1 min</i></div><div class="friend"><span class="friend-avatar f4">⚔</span><span><b>Rey Fantasma</b><small>II · En línea</small></span><i>1 min</i></div></div><div class="friend-actions"><button id="friendsInvite">♧</button><button id="friendsAdd">♙＋</button><button data-page="profile">◈</button></div></aside>
-<main class="stage">
-<section class="page active" id="page-home"><div class="home-scene"><div class="scene-sky"></div><div class="scene-moon"></div><div class="scene-castle">♜</div><div class="scene-ribbon ribbon-a"></div><div class="scene-ribbon ribbon-b"></div><div class="scene-ribbon ribbon-c"></div><div class="hero-illustration"><div class="hero-halo"></div><div class="hero-wings">✧</div><div class="hero-hair">◖</div><div class="hero-body">♕</div><div class="hero-orb">✦</div></div><div class="scene-copy"><div class="season-pill">✦ TEMPORADA I · EL DESPERTAR</div><h1>EL REINO<br><em>TE ESPERA</em></h1><p>Tu leyenda comienza donde los antiguos<br>reinos vuelven a despertar.</p><button class="scene-discover" data-page="heroes">DESCUBRIR CAMPEONES ↗</button></div><div class="scene-caption">ETERNAL KINGDOMS <span>·</span> UN REINO, CINCO DESTINOS</div></div>
- <div class="home-bottom-info"><div class="news-card"><span class="news-icon">♨</span><div><small>EVENTO DESTACADO</small><b>La Llama del Dragón</b><p>Completa misiones y reclama recompensas.</p></div><button data-page="events">VER ↗</button></div><div class="news-card"><span class="news-icon">✧</span><div><small>NOVEDAD</small><b>El llamado de los antiguos</b><p>Conoce las leyendas de esta temporada.</p></div><button data-page="heroes">VER ↗</button></div></div>
-</section>
-<section class="page inner-page" id="page-play"><div class="page-topline"><div><small>ELIGE TU DESTINO</small><h1>Preparación de batalla</h1><p>Forma tu escuadrón y entra en la arena.</p></div><span class="server-pill">● REINOS ACTIVOS</span></div><div class="mode-grid"><button class="mode-card selected" data-mode="Clásico 5 vs. 5"><span>⚔</span><b>CLÁSICA</b><strong>5 VS 5</strong><small>La batalla definitiva</small></button><button class="mode-card" data-mode="Duelo 1 vs. 1"><span>♜</span><b>DUelo</b><strong>1 VS 1</strong><small>Honor contra honor</small></button><button class="mode-card" data-mode="Entrenamiento"><span>✧</span><b>ENTRENAMIENTO</b><strong>∞</strong><small>Domina tus habilidades</small></button></div><div class="lobby-panel"><div class="lobby-top"><div><small>SALA DE ESPERA</small><h2 id="lobbyMode">Grieta de los Antiguos · 5 vs. 5</h2></div><span class="room-code">SALA # EK-0529</span></div><div class="teams"><div class="team"><b>✦ LEGIÓN DEL ALBA</b><div class="slots" id="allySlots"></div></div><div class="versus">VS</div><div class="team team-red"><b>☾ CORTE UMBRÍA</b><div class="slots" id="enemySlots"></div></div></div><div class="lobby-footer"><span>Selecciona un campeón para ocupar tu espacio.</span><button class="gold-button" id="queueBtn">BUSCAR PARTIDA →</button></div></div><p class="demo-note">Modo de demostración: el emparejamiento online y el combate multijugador se incorporarán posteriormente.</p></section>
-<section class="page inner-page" id="page-heroes"><div class="page-topline"><div><small>LEYENDAS DE LAS TIERRAS ETERNAS</small><h1>Héroes</h1><p>Elige al campeón que escribirá tu historia.</p></div><div class="counter-box"><b id="heroCount">8</b><small>CAMPEONES</small></div></div><div class="filter-row"><div class="filter-tabs" id="heroFilters"><button class="filter active" data-filter="Todos">TODOS</button><button class="filter" data-filter="Guerrero">GUERRERO</button><button class="filter" data-filter="Mago">MAGO</button><button class="filter" data-filter="Asesino">ASESINO</button><button class="filter" data-filter="Tanque">TANQUE</button><button class="filter" data-filter="Soporte">SOPORTE</button></div></div><div class="heroes-layout"><div class="hero-grid" id="heroGrid"></div><aside class="hero-detail" id="heroDetail"></aside></div></section>
-<section class="page inner-page" id="page-store"><div class="page-topline"><div><small>EL MERCADO DE LOS ANTIGUOS</small><h1>Tienda</h1><p>Objetos únicos para campeones extraordinarios.</p></div><div class="wallet wallet-inner"><span>🪙 <b id="goldBalanceCopy">2.450</b></span><span>💎 <b id="gemBalanceCopy">320</b></span></div></div><div class="store-tabs"><button class="store-tab active" data-store="Destacados">DESTACADOS</button><button class="store-tab" data-store="Aspectos">ASPECTOS</button><button class="store-tab" data-store="Objetos">OBJETOS</button><button class="store-tab" data-store="Monedas">MONEDAS</button></div><div class="store-grid" id="storeGrid"></div></section>
-<section class="page inner-page" id="page-collection"><div class="page-topline"><div><small>TUS TESOROS Y CONQUISTAS</small><h1>Colección</h1><p>Todo lo que has conseguido en tu aventura.</p></div><div class="counter-box"><b id="collectionCount">3</b><small>ELEMENTOS</small></div></div><div class="collection-summary"><div><span>♙</span><b id="ownedHeroes">3</b><small>HÉROES</small></div><div><span>✧</span><b id="ownedSkins">1</b><small>ASPECTOS</small></div><div><span>♢</span><b id="ownedItems">2</b><small>OBJETOS</small></div></div><h2 class="subheading">TUS POSESIONES</h2><div class="collection-grid" id="collectionGrid"></div></section>
-<section class="page inner-page" id="page-profile"><div class="page-topline"><div><small>CRÓNICAS DE UN CAMPEÓN</small><h1>Perfil</h1><p>Tu historia en las Tierras Eternas.</p></div><button class="outline-button" id="editProfile">✎ EDITAR PERFIL</button></div><div class="profile-banner"><div class="profile-avatar">♜<span>✦</span></div><div class="profile-main"><small>VETERANO DEL REINO</small><h2 id="profileName">Aventurero</h2><p>Guardián de las Tierras Eternas · Se unió en noviembre de 2026</p><div class="xp-line"><span>NIVEL 12</span><div><i></i></div><span>2.450 / 3.000 XP</span></div></div><div class="profile-rank"><div>✧</div><b>PLATA II</b><small>RANGO ACTUAL</small></div></div><div class="stats-grid"><div class="stat-card"><small>PARTIDAS JUGADAS</small><b>128</b><span>En tu aventura</span></div><div class="stat-card"><small>VICTORIAS</small><b>76</b><span>59,4% de victorias</span></div><div class="stat-card"><small>ELIMINACIONES</small><b>842</b><span>En todos los modos</span></div><div class="stat-card"><small>MEJOR RACHA</small><b>9</b><span>Victorias consecutivas</span></div></div><h2 class="subheading">HISTORIAL RECIENTE</h2><div class="match-list"><div class="match-row win"><span>⚔</span><div><b>Grieta de los Antiguos</b><small>Clásico · 5 vs. 5 · 18 NOV 2026</small></div><strong>VICTORIA</strong><span>18 / 4 / 11</span></div><div class="match-row loss"><span>☾</span><div><b>Grieta de los Antiguos</b><small>Clásico · 5 vs. 5 · 17 NOV 2026</small></div><strong>DERROTA</strong><span>7 / 9 / 5</span></div></div></section>
-<section class="page inner-page" id="page-events"><div class="page-topline"><div><small>EL CALENDARIO DE LOS REINOS</small><h1>Eventos</h1><p>Pruebas de valor y recompensas de temporada.</p></div><div class="event-timer"><small>FIN DE TEMPORADA</small><b>18d 07h 42m</b></div></div><div class="event-hero"><div class="event-hero-art">♨</div><div><small>EVENTO PRINCIPAL · TIEMPO LIMITADO</small><h2>La Llama del Dragón</h2><p>El fuego ancestral vuelve a despertar. Completa misiones para conseguir emblemas, monedas y el aspecto exclusivo Guardián Carmesí.</p><div class="event-progress"><span>PROGRESO DEL EVENTO</span><b id="eventProgressText">0 / 6 misiones</b><div><i id="eventProgressBar"></i></div></div></div><div class="event-reward"><span>✹</span><small>RECOMPENSA FINAL</small><b>Guardián Carmesí</b></div></div><h2 class="subheading">MISIONES DISPONIBLES</h2><div class="missions" id="missions"></div></section>
-<section class="page inner-page" id="page-settings"><div class="page-topline"><div><small>PERSONALIZA TU EXPERIENCIA</small><h1>Configuración</h1><p>Ajusta el reino a tu manera.</p></div></div><div class="settings-panel"><div class="settings-group"><span>♫</span><div><b>Sonido</b><small>Efectos de interfaz y juego</small></div><label class="switch"><input type="checkbox" id="soundSetting" checked><i></i></label></div><div class="settings-group"><span>♬</span><div><b>Música</b><small>Ambiente y banda sonora</small></div><label class="switch"><input type="checkbox" id="musicSetting" checked><i></i></label></div><div class="settings-group"><span>◈</span><div><b>Calidad visual</b><small>Rendimiento gráfico de la interfaz</small></div><select id="qualitySetting"><option>Ultra</option><option>Alta</option><option>Media</option><option>Baja</option></select></div><div class="settings-group"><span>文</span><div><b>Idioma</b><small>Idioma de la interfaz</small></div><select id="languageSetting"><option>Español</option><option>English</option><option>Português</option></select></div><div class="settings-footer"><span>Los cambios se guardan en este dispositivo.</span><button class="outline-button" id="resetSettings">RESTAURAR</button></div></div><div class="about-card">✦ <b>ETERNAL KINGDOMS</b><small>WEB EDITION · PRETEMPORADA 0.9.1</small></div></section>
-</main>
-<nav class="bottom-dock"><button class="dock-item active" data-page="play"><span>◈</span><b>Preparación</b></button><button class="dock-item" data-page="heroes"><span>♙</span><b>Héroes</b></button><button class="dock-item" data-page="collection"><span>✥</span><b>Colección</b></button><button class="dock-item" data-page="collection"><span>▣</span><b>Inventario</b></button><button class="dock-mode" data-page="play"><span>⚔</span><b>MODO</b></button><button class="classic-button" data-page="play"><span>◈</span><b>CLÁSICA</b><i>5 VS 5</i></button></nav>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Eternal Kingdoms</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-container": "#b28b19",
+          "surface-variant": "#2b3355",
+          "primary-fixed": "#a6eeff",
+          "on-tertiary": "#3b0091",
+          "secondary": "#edc14e",
+          "on-error": "#690005",
+          "on-background": "#dde1ff",
+          "inverse-surface": "#dde1ff",
+          "inverse-primary": "#006878",
+          "outline-variant": "#3c494c",
+          "on-primary-fixed": "#001f25",
+          "on-secondary-fixed": "#251a00",
+          "error": "#ffb4ab",
+          "on-primary": "#00363f",
+          "surface-container": "#151d3e",
+          "on-error-container": "#ffdad6",
+          "surface-container-high": "#20284a",
+          "secondary-fixed-dim": "#edc14e",
+          "surface-dim": "#071132",
+          "outline": "#859397",
+          "on-secondary-fixed-variant": "#5a4400",
+          "on-secondary": "#3e2e00",
+          "on-surface-variant": "#bbc9cd",
+          "background": "#071132",
+          "tertiary-fixed": "#e9ddff",
+          "tertiary": "#f1e7ff",
+          "on-primary-fixed-variant": "#004e5b",
+          "on-tertiary-fixed": "#23005c",
+          "primary-container": "#38e1ff",
+          "on-secondary-container": "#362800",
+          "surface-container-lowest": "#030b2d",
+          "surface-bright": "#2f375a",
+          "error-container": "#93000a",
+          "surface-container-highest": "#2b3355",
+          "on-surface": "#dde1ff",
+          "on-primary-container": "#00616f",
+          "surface-tint": "#27d9f7",
+          "primary": "#c2f3ff",
+          "on-tertiary-fixed-variant": "#541eb7",
+          "tertiary-container": "#d7c6ff",
+          "on-tertiary-container": "#6636c8",
+          "tertiary-fixed-dim": "#d0bcff",
+          "surface-container-low": "#11193a",
+          "surface": "#071132",
+          "inverse-on-surface": "#262e50",
+          "primary-fixed-dim": "#27d9f7",
+          "secondary-fixed": "#ffdf97"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-md": "0.75rem",
+          "gutter": "1rem",
+          "space-xs": "0.25rem",
+          "gutter-mobile": "0.5rem",
+          "margin": "2rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1rem",
+          "space-lg": "1.25rem",
+          "space-xl": "2rem"
+        },
+        "fontFamily": {
+          "headline-md": ["Noto Serif"],
+          "display-hero": ["Noto Serif"],
+          "body-lg": ["Manrope"],
+          "headline-lg": ["Noto Serif"],
+          "headline-sm": ["Noto Serif"],
+          "body-md": ["Manrope"],
+          "label-numeric": ["Manrope"],
+          "label-micro": ["Manrope"],
+          "headline-lg-mobile": ["Noto Serif"],
+          "body-sm": ["Manrope"],
+          "label-tactical": ["Manrope"],
+          "display-hero-mobile": ["Noto Serif"]
+        },
+        "fontSize": {
+          "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "display-hero": ["48px", {"lineHeight": "56px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+          "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+          "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+          "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "label-numeric": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+          "label-micro": ["9px", {"lineHeight": "12px", "letterSpacing": "0.08em", "fontWeight": "800"}],
+          "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+          "label-tactical": ["13px", {"lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800"}],
+          "display-hero-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "0.03em", "fontWeight": "700"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-surface text-on-surface antialiased select-none"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(3,11,45,0.7)]"><div class="h-20 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Eternal Kingdoms Crest Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi0eIh5XyrECDDpOPD3lxl23BanXLBlDbw-hDIoUSAWZCcInnvSsElNll1lAWUWnrCof2GAGNHLaN_Uk9cIDcpjHFUwP9T5REU2ShtE631O4lZdqmXZHkyeAMeYUclFDMz4OWSX2AGpAqdf6gQw3zvgkbBl1j_CRpVJOdLIjHbG5etUoZeOIyAe9lRY21Pu68ddR4qrBT3jylFm6-BnjFHV6MJaM6Ad23OgRH_vOXS"/><span class="font-headline-sm text-headline-sm text-secondary tracking-widest uppercase hidden lg:inline-block">Eternal Kingdoms</span><div class="h-6 w-px bg-surface-variant mx-space-xs hidden lg:block"></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold"><a aria-current="page" class="px-space-md py-space-xs rounded-lg transition-colors bg-surface-container-high text-primary font-bold" data-path="inicio" href="#">General</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="noticias-y-parches" href="#">Parches</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="clasificatoria" href="#">Clasificatoria</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="ajustes" href="#">Ajustes</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm bg-surface-container-low/90 backdrop-blur-md px-space-md py-space-xs rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-base">monetization_on</span><span class="font-label-numeric text-label-numeric text-on-surface">148,250</span></div><div class="h-4 w-px bg-surface-variant"></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary-container text-base">diamond</span><span class="font-label-numeric text-label-numeric text-on-surface">3,420</span></div><button class="bg-secondary hover:bg-secondary-fixed text-on-secondary px-space-xs py-0.5 rounded text-xs flex items-center justify-center" type="button"><span class="material-symbols-outlined text-sm font-bold">add</span></button></div><div class="flex items-center gap-space-sm bg-surface-container-low/90 backdrop-blur-md pl-space-xs pr-space-md py-space-xs rounded-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAw-PZ5SpnXcsan-Q-e8AYHhSFDCK17KbZcmJuucX69YIbqClKin4CfKU4LVd3m-sDdUzAmO2mq9Fdh9dQnkVPyw3XevMkkVBKlVU01QFSdw1-omPVZ55egQLDvvFexJjovPAQ5Jz0beZFqKVoTrzURbRYDhSCMpKtj_FKbg9kOBGCh-y_SFKPft4d7OUyy7R4WDQ8zYKZfqYXOmFsS68htipvvXT-A9NfdZcUx01S"/><div class="absolute -bottom-1 -right-1 bg-surface-container-lowest text-secondary px-1 py-0.2 rounded-full font-label-micro text-label-micro shadow">12</div></div><div class="hidden sm:flex flex-col gap-0.5 min-w-[96px]"><div class="flex items-center justify-between text-xs"><span class="font-label-tactical text-label-tactical text-on-surface">Archmage</span><span class="font-label-micro text-label-micro text-on-surface-variant">68%</span></div><div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden"><div class="w-2/3 h-full bg-primary-container rounded-full"></div></div></div></div><div class="flex items-center gap-space-xs"><button class="w-8 h-8 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-lg">mail</span></button><button class="w-8 h-8 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-lg">settings</span></button></div></div></div></header><main class="w-full pt-20 pb-28 bg-surface"><div class="flex flex-col w-full relative min-h-full overflow-hidden">
+<!-- Living Ambient Background Effects -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40 mix-blend-screen scale-105 transform filter blur-[1px]" data-alt="Breathtaking fantasy celestial citadel floating among starfields and glowing turquoise auroras. High arches of ornate gilded architecture, luminous blue crystals hovering in the air, deep midnight cosmic nebula background with gold dust particles and distant towers of an ancient kingdom." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg80fcZA4UJmr1G8o1qLXpvAJsXwjtuSIKfI5qwmPsRrSZ5ICl0FVp9HT-yKsDtf0KEN7Q1ivVPtHIo8nJJvTVQjkg5qf4g4A9W2YnKvaoFcAvtLtxozQ68H1pRFbUwQhWwNDsIQgkysjk0UmDNUE6CrVxJvLOWBImHebEOYUqzz649zt3rpguSb-gNexxfxl9P8syy0JulLQS5u944AIgjNrgcaesxW_ige9G6ShY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/60 to-surface-container-lowest/80"></div>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-primary-container/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute -bottom-24 left-1/3 w-[500px] h-[350px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
 </div>
-<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-content" id="modalContent"></div></div></div><div class="toast" id="toast"></div><script src="app.js"></script></body></html>
+<!-- Main Hero Stage & Lobby Grid -->
+<div class="relative z-10 w-full px-margin-mobile lg:px-margin pt-space-md pb-space-lg flex flex-col gap-space-lg">
+<!-- Central Grid Layout: 3 Columns (Promos | Center Hero Showcase | Friends Deck) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- LEFT RAIL: Promotional & Event Banners (3 Cols) -->
+<div class="lg:col-span-3 flex flex-col gap-space-md">
+<!-- Event Banner 1: Battle Pass -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low/85 backdrop-blur-xl shadow-[0_12px_32px_rgba(3,11,45,0.7)] hover:bg-surface-container-high/90 transition-all duration-300">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<div class="w-full h-full bg-cover bg-center" data-alt="A glowing golden winged valkyrie knight in ornate gold armor holding a celestial crystalline spear, radiant sunburst rays, dramatic epic cinematic lighting, dark blue star backdrop with golden sparkles" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfa6cGAGFHNYjPogxD2L0TBFyDEbiTynG-yjgOqEK0v3UE_aW5zSrgyhulZ4Cg5KK1Xseo52GEYVeRrWQS0jYVWvcf57wyFm8E_CCSkP9AAOAItNK4uJMVg0f-Nus7XyQQvsfAdrs4taJbPE3bG1aFKVNDDshazFtxEuHuY6L94Jz5LA2fePwP-LIDYyGrf78zwR1Grvd5Xl6mGK2ieS5eXbBngaaLBzjdJ1AeSCTp')"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-low/70 to-transparent"></div>
+<div class="relative p-space-lg flex flex-col justify-between h-52">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded bg-secondary/20 backdrop-blur-md text-secondary font-label-micro text-label-micro tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                Temporada I
+              </span>
+<span class="font-label-numeric text-label-numeric text-primary-container bg-surface-container-highest/80 px-2 py-0.5 rounded">
+                NV. 48 / 100
+              </span>
+</div>
+<div class="space-y-1">
+<span class="font-label-tactical text-label-tactical text-primary uppercase block">Pase Celestial</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Campeones del Alba</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Reclama el Aspecto Mítico 'Aurelia Solar'</p>
+<!-- Mini Progress Track -->
+<div class="pt-2 flex items-center gap-space-sm">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary-container to-secondary w-3/4 rounded-full shadow-[0_0_8px_rgba(237,193,78,0.7)]"></div>
+</div>
+<span class="font-label-numeric text-label-numeric text-secondary font-bold">75%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Event Banner 2: Mythic Chest / Dragon Relics -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low/85 backdrop-blur-xl shadow-[0_12px_32px_rgba(3,11,45,0.7)] hover:bg-surface-container-high/90 transition-all duration-300">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<div class="w-full h-full bg-cover bg-center" data-alt="Ancient blue sapphire dragon relic floating inside a shattered runic crystal shrine, ethereal cyan flames, arcane particles swirling, epic gaming concept art" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTUco_NhD2i6CyA0BUFM1EH6B81ecaGdmIPOurTuxf8jWXLGLJERC_VYvxKWocO1v9VYk1_2YZ4Dx3szYBIeYZ6X3FvwumFby-G3LNi3yRtdfRGk7an9S6pc3DKiFRBXj7JapIMGiFVtMjMZ1WNf_x03j8JrLcz6Nj2xSjlwszJ9XQELC_fVU28AI1d3A9oqCvmwjT-a_cOWCXbqF1vb9Qm3ttZadGHoXt-YCQ0UZE')"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-low/70 to-transparent"></div>
+<div class="relative p-space-lg flex flex-col justify-between h-52">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded bg-primary-container/20 backdrop-blur-md text-primary-container font-label-micro text-label-micro tracking-widest uppercase">
+<span class="material-symbols-outlined text-xs">auto_awesome</span>
+                Exclusivo
+              </span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Termina en 3d 14h</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-tactical text-label-tactical text-secondary uppercase block">Cofre de Reliquias</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Aliento del Dragón</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">3 Aspectos Trascendentes desbloqueables</p>
+<div class="pt-2 flex items-center justify-between">
+<div class="flex items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined text-sm">diamond</span>
+<span class="font-label-numeric text-label-numeric">1,200</span>
+</div>
+<button class="px-space-md py-1 bg-surface-container-highest hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-tactical text-label-tactical rounded uppercase transition-colors" type="button">
+                  Explorar
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Ranked Standing Quick Badge -->
+<div class="p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md flex items-center justify-between shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary shadow-[0_0_12px_rgba(237,193,78,0.3)]">
+<span class="material-symbols-outlined text-2xl">workspace_premium</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">Platino II</div>
+<div class="font-label-micro text-label-micro text-on-surface-variant uppercase tracking-wider">78 / 100 PL • Racha +3</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-base">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<!-- CENTER STAGE: Champion Spotlight Hero (6 Cols) -->
+<div class="lg:col-span-6 relative flex flex-col justify-between rounded-xl overflow-hidden bg-surface-container-lowest/40 backdrop-blur-md shadow-[0_16px_48px_rgba(0,0,0,0.8)] min-h-[480px] lg:min-h-[520px]">
+<!-- Champion Artwork -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="w-full h-full bg-cover bg-center transform hover:scale-105 transition-transform duration-700" data-alt="Imposing front-view heroic fantasy paladin warrior champion in majestic winged blue-crystal and gilded filigree armor, holding a luminous greatsword with cyan crackling lightning, ethereal celestial aura, floating crest sigils in air, hyperdetailed concept art" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGln11Gmz6ohTLXzTeMQ4RrYsP_V9iglrKIt_4P_LN362J3spYKZwhhiY6WQrv_rJ_xRTO3KLAW1r2UqvdDTDdePbqcGOVQFNqFq5slz-wmz-yAfpxgeuBm2bEoWKq5ivpXzkD39ndhMIZEYMMKQts807Vfc2CE2jDDYTYK6ALXicoAwhLWLp0igRMDOiTY-_8x8o_sQVItDLPDlsS4CrLPPCpYlCgxwRyyMai6uzy')"></div>
+<!-- Contrast Vignettes -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/20 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/60 via-transparent to-surface-container-lowest/60"></div>
+</div>
+<!-- Top HUD Header: Champion Title & Emblems -->
+<div class="relative z-10 p-space-lg flex items-start justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-space-sm">
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high/90 text-primary-container font-label-micro text-label-micro tracking-widest uppercase shadow">
+                Guardián Celestial
+              </span>
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high/90 text-secondary font-label-micro text-label-micro tracking-widest uppercase">
+                Rol: Tanque / Iniciador
+              </span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-wide drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">
+              AETHELRED
+            </h1>
+<p class="font-headline-sm text-headline-sm text-secondary drop-shadow">El Bastión de las Estrellas</p>
+</div>
+<!-- Hero Selection Rotary Trigger -->
+<div class="flex flex-col items-end gap-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest/80 backdrop-blur-md px-space-sm py-1 rounded-xl shadow">
+<span class="material-symbols-outlined text-secondary text-base">shield_with_heart</span>
+<span class="font-label-tactical text-label-tactical text-on-surface">Maestría VII</span>
+</div>
+<span class="font-label-micro text-label-micro text-on-surface-variant">148,920 Puntos</span>
+</div>
+</div>
+<!-- Bottom Action Deck: Hero Loadout Stats & Quick Customizer -->
+<div class="relative z-10 p-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/90 to-transparent">
+<!-- Ability Pip Icons -->
+<div class="flex items-center gap-space-sm">
+<div class="group relative w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_rgba(56,225,255,0.25)] hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-xl">flash_on</span>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest text-on-surface font-label-micro text-label-micro px-1 rounded-full">P</div>
+</div>
+<div class="group relative w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-primary hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-xl">security</span>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest text-on-surface font-label-micro text-label-micro px-1 rounded-full">1</div>
+</div>
+<div class="group relative w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-primary hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-xl">cyclone</span>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest text-on-surface font-label-micro text-label-micro px-1 rounded-full">2</div>
+</div>
+<!-- Ultimate Ability -->
+<div class="group relative w-12 h-12 rounded-lg bg-gradient-to-tr from-secondary-container to-secondary text-on-secondary flex items-center justify-center shadow-[0_0_16px_rgba(237,193,78,0.5)] hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-2xl font-bold">bolt</span>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest text-secondary font-label-micro text-label-micro px-1 rounded-full font-bold">ULT</div>
+</div>
+</div>
+<!-- Hero Action Controls -->
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-space-md py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-tactical text-label-tactical uppercase tracking-wider transition-colors flex items-center justify-center gap-space-xs shadow" type="button">
+<span class="material-symbols-outlined text-base">app_registration</span>
+              Aspectos (6)
+            </button>
+<button class="flex-1 sm:flex-none px-space-lg py-space-sm rounded-xl bg-primary-container hover:bg-primary-fixed text-on-primary-container font-label-tactical text-label-tactical uppercase tracking-wider transition-colors shadow-[0_0_20px_rgba(56,225,255,0.4)] flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-base font-bold">swords</span>
+              Probar Héroe
+            </button>
+</div>
+</div>
+</div>
+<!-- RIGHT DECK: Live Social & Party Formation (3 Cols) -->
+<div class="lg:col-span-3 flex flex-col gap-space-md">
+<!-- Social Hub Card -->
+<div class="rounded-xl bg-surface-container-low/90 backdrop-blur-xl p-space-md flex flex-col shadow-[0_12px_32px_rgba(3,11,45,0.7)]">
+<!-- Hub Header -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-lg">group</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Escuadrón</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-micro text-label-micro">3 / 5</span>
+</div>
+<button class="text-xs text-primary-container hover:underline font-label-tactical text-label-tactical uppercase" type="button">
+              Invitar
+            </button>
+</div>
+<!-- Current Party Members Mini-Deck -->
+<div class="grid grid-cols-5 gap-space-xs py-space-xs">
+<!-- Slot 1: You (Host) -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center relative shadow-[0_0_8px_rgba(56,225,255,0.4)]">
+<span class="material-symbols-outlined text-primary-container text-xl">crown</span>
+<span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+</div>
+<span class="font-label-micro text-label-micro text-primary-container font-bold truncate max-w-[48px]">Tú</span>
+</div>
+<!-- Slot 2: Lord Neko -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center relative">
+<span class="material-symbols-outlined text-secondary text-xl">swords</span>
+<span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-micro text-label-micro text-on-surface truncate max-w-[48px]">Neko</span>
+</div>
+<!-- Slot 3: Leonel -->
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center relative">
+<span class="material-symbols-outlined text-primary text-xl">auto_fix_high</span>
+<span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-micro text-label-micro text-on-surface truncate max-w-[48px]">Leonel</span>
+</div>
+<!-- Slot 4: Empty Plus -->
+<button class="flex flex-col items-center gap-1 group" type="button">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest/60 hover:bg-surface-container-highest flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container text-lg">add</span>
+</div>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Libre</span>
+</button>
+<!-- Slot 5: Empty Plus -->
+<button class="flex flex-col items-center gap-1 group" type="button">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest/60 hover:bg-surface-container-highest flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-container text-lg">add</span>
+</div>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Libre</span>
+</button>
+</div>
+</div>
+<!-- Friends List Active Deck -->
+<div class="flex-1 rounded-xl bg-surface-container-low/90 backdrop-blur-xl p-space-md flex flex-col shadow-[0_12px_32px_rgba(3,11,45,0.7)]">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Amigos en Línea (8)</span>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-xs">search</span>
+</button>
+<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-xs">tune</span>
+</button>
+</div>
+</div>
+<!-- Live Roster Stack -->
+<div class="flex flex-col gap-space-xs overflow-y-auto max-h-[300px]">
+<!-- Friend Item 1: In Game -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-tactical text-label-tactical text-secondary">
+                    VR
+                  </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="font-label-tactical text-label-tactical text-on-surface truncate">Valkiria_Rex</div>
+<div class="font-label-micro text-label-micro text-secondary truncate">En Partida • Grieta (14m)</div>
+</div>
+</div>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-primary-container flex items-center justify-center transition-colors" title="Espectar Partida" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+<!-- Friend Item 2: Ready for Party -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-tactical text-label-tactical text-primary-container">
+                    RF
+                  </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary-container ring-2 ring-surface-container-lowest animate-ping"></span>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="font-label-tactical text-label-tactical text-on-surface truncate">ReyFantasma</div>
+<div class="font-label-micro text-label-micro text-primary-container truncate">Buscando Duelo 5v5</div>
+</div>
+</div>
+<button class="w-7 h-7 rounded bg-primary-container/20 hover:bg-primary-container text-primary-container hover:text-on-primary-container flex items-center justify-center transition-colors" title="Invitar a Escuadrón" type="button">
+<span class="material-symbols-outlined text-sm">person_add</span>
+</button>
+</div>
+<!-- Friend Item 3: Idle in Lobby -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-tactical text-label-tactical text-on-surface-variant">
+                    SL
+                  </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="font-label-tactical text-label-tactical text-on-surface truncate">SombraLunar</div>
+<div class="font-label-micro text-label-micro text-on-surface-variant truncate">En la Sala Principal</div>
+</div>
+</div>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Invitar a Escuadrón" type="button">
+<span class="material-symbols-outlined text-sm">group_add</span>
+</button>
+</div>
+<!-- Friend Item 4: Online -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center font-label-tactical text-label-tactical text-on-surface-variant">
+                    KA
+                  </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="font-label-tactical text-label-tactical text-on-surface truncate">Kael_Aegis</div>
+<div class="font-label-micro text-label-micro text-on-surface-variant truncate">En Línea • Personalizando</div>
+</div>
+</div>
+<button class="w-7 h-7 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="Mensaje Directo" type="button">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Quick Guild Clan Banner Footer -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-5 h-5 rounded bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xs">shield</span>
+</div>
+<span class="font-label-micro text-label-micro text-on-surface-variant uppercase tracking-wider">Clan: [AURORA] (Nv. 12)</span>
+</div>
+<span class="font-label-numeric text-label-numeric text-primary-container font-bold">14/20 Activos</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTTOM ROW: Symmetric News & Event Dispatch Feed (2 Major Bento Tiles) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- News Card 1: Featured In-Game Live Event -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low/90 backdrop-blur-xl p-space-lg flex items-center justify-between shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:bg-surface-container-high/90 transition-all cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-error-container to-secondary flex items-center justify-center text-on-error shrink-0 shadow-[0_0_16px_rgba(237,193,78,0.3)] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">local_fire_department</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.2 rounded bg-error-container text-error font-label-micro text-label-micro tracking-widest uppercase">
+                En Curso
+              </span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Recompensas Dobles</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">La Llama del Dragón Ancestral</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Derrota a la bestia de la fisura para forjar armas astrales.</p>
+</div>
+</div>
+<div class="shrink-0 pl-space-md flex flex-col items-end gap-1">
+<span class="font-label-numeric text-label-numeric text-secondary font-bold">+500 Cristales</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high group-hover:bg-primary-container group-hover:text-on-primary-container text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- News Card 2: Season Patch Notes & World State -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-low/90 backdrop-blur-xl p-space-lg flex items-center justify-between shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:bg-surface-container-high/90 transition-all cursor-pointer">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-surface-variant to-primary-container flex items-center justify-center text-on-primary shrink-0 shadow-[0_0_16px_rgba(56,225,255,0.3)] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-3xl">auto_stories</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.2 rounded bg-primary-container/20 text-primary-container font-label-micro text-label-micro tracking-widest uppercase">
+                Parche v2.4.0
+              </span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Actualización Mayor</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface truncate">Temporada I: El Despertar</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Nuevos ítems míticos, equilibrio de magos y mapa renovado.</p>
+</div>
+</div>
+<div class="shrink-0 pl-space-md flex flex-col items-end gap-1">
+<span class="font-label-micro text-label-micro text-on-surface-variant">Notas Completas</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high group-hover:bg-primary-container group-hover:text-on-primary-container text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-2xl shadow-[0_-8px_32px_rgba(0,0,0,0.7)]"><div class="w-full px-margin py-space-sm flex items-center justify-between gap-space-md"><nav class="flex items-center gap-space-xs overflow-x-auto" data-active-classes="bg-surface-container-high text-primary-container shadow-[0_0_16px_rgba(56,225,255,0.35)]"><a aria-current="page" class="flex flex-col items-center justify-center px-space-md py-space-xs rounded-xl transition-all min-w-[76px] bg-surface-container-high text-primary-container shadow-[0_0_16px_rgba(56,225,255,0.35)]" data-path="inicio" href="#"><span class="material-symbols-outlined text-xl mb-0.5">shield</span><span class="font-label-micro text-label-micro tracking-wider uppercase">Inicio</span></a><a class="flex flex-col items-center justify-center px-space-md py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all min-w-[76px]" data-path="batalla-preparacion" href="#"><span class="material-symbols-outlined text-xl mb-0.5">swords</span><span class="font-label-micro text-label-micro tracking-wider uppercase">Batalla</span></a><a class="flex flex-col items-center justify-center px-space-md py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all min-w-[76px]" data-path="heroes" href="#"><span class="material-symbols-outlined text-xl mb-0.5">person_celebrate</span><span class="font-label-micro text-label-micro tracking-wider uppercase">Héroes</span></a><a class="flex flex-col items-center justify-center px-space-md py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all min-w-[76px]" data-path="tienda" href="#"><span class="material-symbols-outlined text-xl mb-0.5">storefront</span><span class="font-label-micro text-label-micro tracking-wider uppercase">Tienda</span></a><a class="flex flex-col items-center justify-center px-space-md py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all min-w-[76px]" data-path="coleccion" href="#"><span class="material-symbols-outlined text-xl mb-0.5">auto_stories</span><span class="font-label-micro text-label-micro tracking-wider uppercase">Colección</span></a><a class="flex flex-col items-center justify-center px-space-md py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all min-w-[76px]" data-path="eventos" href="#"><span class="material-symbols-outlined text-xl mb-0.5">military_tech</span><span class="font-label-micro text-label-micro tracking-wider uppercase">Eventos</span></a></nav><div class="flex items-center shrink-0"><button class="group relative flex items-center gap-space-md px-space-xl py-space-md bg-secondary hover:bg-secondary-fixed text-on-secondary font-headline-sm text-headline-sm uppercase tracking-wider rounded-xl shadow-[0_0_24px_rgba(237,193,78,0.55),inset_0_1px_0_rgba(255,255,255,0.4)] transition-all transform active:scale-95" type="button"><span class="material-symbols-outlined text-2xl">local_fire_department</span><span class="font-headline-sm text-headline-sm">Modo Clásico 5v5</span><span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span></button></div></div></footer></body></html>
